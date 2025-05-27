@@ -1,0 +1,53 @@
+-- 启用行号和相对行号
+vim.opt.number = true
+-- vim.opt.relativenumber = true
+
+-- 缩进设置
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+-- 高亮当前行
+vim.opt.cursorline = true
+
+-- 启用系统剪贴板
+vim.opt.clipboard = "unnamedplus"
+
+-- 降低超时等待时间（默认 1000ms）
+vim.o.timeoutlen = 300  -- 设置 300ms 内完成 jk 输入才触发
+
+-- 基础映射（模式：n/i/v/x 等）
+-- vim.keymap.set('n', '<Leader>w', ':w<CR>')  -- 保存文件
+
+-- 更安全的映射（禁用递归）
+-- vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('i', ';;', '<Esc>A;', { noremap = true, silent = true })
+
+-- 启用折叠功能
+vim.opt.foldenable = true
+-- 设置默认折叠方式（可选: indent, syntax, marker, expr, manual）
+-- vim.opt.foldmethod = "indent"  -- 根据缩进折叠（适合 Python 等语言）
+-- 默认展开所有折叠（设置折叠级别为最高）
+--- 检查是否存在 VSCode 变量
+if vim.g.vscode then
+    -- 如果存在 VSCode，则创建键映射以调用 VSCode 的命令
+    vim.keymap.set("n", "zR", '<cmd>lua require("vscode-neovim").action("editor.unfoldAll")<cr>', { noremap = true, silent = true })
+    vim.keymap.set("n", "zM", '<cmd>lua require("vscode-neovim").action("editor.foldAll")<cr>', { noremap = true, silent = true })
+    vim.keymap.set("n", "zo", '<cmd>lua require("vscode-neovim").action("editor.unfold")<cr>', { noremap = true, silent = true })
+    vim.keymap.set("n", "zc", '<cmd>lua require("vscode-neovim").action("editor.fold")<cr>', { noremap = true, silent = true })
+
+--    vim.keymap.set("n", "j", '<cmd>lua require("vscode-neovim").action("cursorDown")<cr>', { noremap = true, silent = true })
+--    vim.keymap.set("n", "k", '<cmd>lua require("vscode-neovim").action("cursorUp")<cr>', { noremap = true, silent = true })
+	
+	return { require("vscode_conf") }
+else
+    -- 如果不存在 VSCode，执行普通的 Neovim 配置
+    -- 在这里添加普通的 Neovim 配置
+end
+
+
+-- 组合映射
+--[[ vim.keymap.set('n', '<C-p>', function()
+  require('telescope.builtin').find_files()
+end, { desc = "查找文件" }) ]]
