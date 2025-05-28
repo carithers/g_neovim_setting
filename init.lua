@@ -31,9 +31,13 @@ vim.keymap.set('i', ';;', '<Esc>A;', { noremap = true, silent = true })
 vim.keymap.set({'n','v'}, '<leader>y', [["+y]], { noremap = true, silent = true })
 vim.keymap.set({'n','v'}, '<leader>p', [["+p]], { noremap = true, silent = true })
 
+
 -- 'o' 操作符待决模式, 才可使如:dgl=d$
-vim.keymap.set({'n','v','o'}, 'gl', [[$]], { noremap = true, silent = true })
-vim.keymap.set({'n','v','o'}, 'gh', [[0]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 's', [[<Nop>]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 'sl', [[$]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 'sh', [[0]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 'sj', [[*]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 'sk', [[#]], { noremap = true, silent = true })
 
 -- 启用折叠功能
 vim.opt.foldenable = true
