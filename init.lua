@@ -1,3 +1,7 @@
+
+-- <leader> 按键
+vim.g.mapleader = " "
+
 -- 启用行号和相对行号
 vim.opt.number = true
 -- vim.opt.relativenumber = true
@@ -11,10 +15,10 @@ vim.opt.expandtab = true
 vim.opt.cursorline = true
 
 -- 启用系统剪贴板
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- 降低超时等待时间（默认 1000ms）
-vim.o.timeoutlen = 300  -- 设置 300ms 内完成 jk 输入才触发
+vim.o.timeoutlen = 500  -- 设置 300ms 内完成 jk 输入才触发
 
 -- 基础映射（模式：n/i/v/x 等）
 -- vim.keymap.set('n', '<Leader>w', ':w<CR>')  -- 保存文件
@@ -23,6 +27,13 @@ vim.o.timeoutlen = 300  -- 设置 300ms 内完成 jk 输入才触发
 -- vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('i', ';;', '<Esc>A;', { noremap = true, silent = true })
+
+vim.keymap.set({'n','v'}, '<leader>y', [["+y]], { noremap = true, silent = true })
+vim.keymap.set({'n','v'}, '<leader>p', [["+p]], { noremap = true, silent = true })
+
+-- 'o' 操作符待决模式, 才可使如:dgl=d$
+vim.keymap.set({'n','v','o'}, 'gl', [[$]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 'gh', [[0]], { noremap = true, silent = true })
 
 -- 启用折叠功能
 vim.opt.foldenable = true
