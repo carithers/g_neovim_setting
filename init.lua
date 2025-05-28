@@ -35,9 +35,10 @@ vim.keymap.set({'n','v'}, '<leader>p', [["+p]], { noremap = true, silent = true 
 -- 'o' 操作符待决模式, 才可使如:dgl=d$
 vim.keymap.set({'n','v','o'}, 's', [[<Nop>]], { noremap = true, silent = true })
 vim.keymap.set({'n','v','o'}, 'sl', [[$]], { noremap = true, silent = true })
-vim.keymap.set({'n','v','o'}, 'sh', [[0]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 'sh', [[^]], { noremap = true, silent = true })
 vim.keymap.set({'n','v','o'}, 'sj', [[*]], { noremap = true, silent = true })
 vim.keymap.set({'n','v','o'}, 'sk', [[#]], { noremap = true, silent = true })
+vim.keymap.set({'n','v','o'}, 'ss', [[%]], { noremap = true, silent = true })
 
 -- 启用折叠功能
 vim.opt.foldenable = true
@@ -47,14 +48,13 @@ vim.opt.foldenable = true
 --- 检查是否存在 VSCode 变量
 if vim.g.vscode then
     -- 如果存在 VSCode，则创建键映射以调用 VSCode 的命令
+    -- 折叠相关的操作
     vim.keymap.set("n", "zR", '<cmd>lua require("vscode-neovim").action("editor.unfoldAll")<cr>', { noremap = true, silent = true })
     vim.keymap.set("n", "zM", '<cmd>lua require("vscode-neovim").action("editor.foldAll")<cr>', { noremap = true, silent = true })
     vim.keymap.set("n", "zo", '<cmd>lua require("vscode-neovim").action("editor.unfold")<cr>', { noremap = true, silent = true })
     vim.keymap.set("n", "zc", '<cmd>lua require("vscode-neovim").action("editor.fold")<cr>', { noremap = true, silent = true })
-
---    vim.keymap.set("n", "j", '<cmd>lua require("vscode-neovim").action("cursorDown")<cr>', { noremap = true, silent = true })
---    vim.keymap.set("n", "k", '<cmd>lua require("vscode-neovim").action("cursorUp")<cr>', { noremap = true, silent = true })
-	
+    vim.keymap.set("n", "za", '<cmd>lua require("vscode-neovim").action("editor.toggleFold")<cr>', { noremap = true, silent = true })
+	-- 按j或k的时候可以不自动展开已经折叠的内容
 	return { require("vscode_conf") }
 else
     -- 如果不存在 VSCode，执行普通的 Neovim 配置
