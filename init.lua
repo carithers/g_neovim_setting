@@ -70,6 +70,13 @@ else
     -- 在这里添加普通的 Neovim 配置
 end
 
+-- 禁用o新行自动注释
+-- 使用 :verbose set formatoptions? 来查看最好更改位置发现:
+-- Last set from C:\Program Files\Neovim\share\nvim\runtime\ftplugin\lua.vim line 30
+-- 如果是vscode-neovim里面: Last set from c:\program files\neovim\share\nvim\runtime\ftplugin\c.vim line 24
+-- 在上述文件里面更改了, 导致下面的配置无法生效,所以去文件里面吧o去掉就可以了
+-- vim.opt.formatoptions = vim.opt.formatoptions:remove("o")
+-- vim.cmd [[set formatoptions-=o]]
 
 -- 组合映射
 --[[ vim.keymap.set('n', '<C-p>', function()
