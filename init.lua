@@ -39,6 +39,15 @@ vim.keymap.set({'n','v','o'}, 'sh', [[^]], { noremap = true, silent = true })
 vim.keymap.set({'n','v','o'}, 'sj', [[*]], { noremap = true, silent = true })
 vim.keymap.set({'n','v','o'}, 'sk', [[#]], { noremap = true, silent = true })
 vim.keymap.set({'n','v','o'}, 'ss', [[%]], { noremap = true, silent = true })
+-- sy复制单词或其它方法复制, 用sp,s',s",s(,s[,s{可以替换里面的内容
+vim.keymap.set('n', 'sy', 'viwy', { noremap = true, silent = true })
+vim.keymap.set('n', 'sp', [[viw"0p]], { noremap = true, silent = true })
+vim.keymap.set({'n'}, [[s']], [[vi'"0p]], { noremap = true, silent = true })
+vim.keymap.set({'n'}, [[s"]], [[vi""0p]], { noremap = true, silent = true })
+vim.keymap.set({'n'}, 's(', [[vi("0p]], { noremap = true, silent = true })
+vim.keymap.set({'n'}, 's[', [[vi["0p]], { noremap = true, silent = true })
+vim.keymap.set({'n'}, 's{', [[vi{"0p]], { noremap = true, silent = true })
+
 
 -- 启用折叠功能
 vim.opt.foldenable = true
