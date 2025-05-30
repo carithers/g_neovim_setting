@@ -26,7 +26,7 @@ local setup = function()
 		end)
 	end
 
-	vim.api.nvim_create_autocmd("TextYankPost", {
+	--[[ vim.api.nvim_create_autocmd("TextYankPost", {
 		callback = function()
 			vim.highlight.on_yank({ timeout = 60 })
 		end,
@@ -36,14 +36,11 @@ local setup = function()
 	vim.g.vscode_clipboard = vim.g.vscode_clipboard or "unnamedplus"
 	vim.g.mapleader = " "
 	vim.g.maplocalleader = " "
-
+	]]
 	return {
 		mapMove("k", "up"),
 		mapMove("j", "down"),
-		print("Init. returning..."),
-		vim.cmd([[
-		set clipboard+=unnamedplus
-		]]),
+		-- vim.cmd([[ set clipboard+=unnamedplus ]]),
 	}
 end
 
