@@ -48,6 +48,8 @@ vim.keymap.set({'n'}, 's(', [[vi("0p]], { noremap = true, silent = true })
 vim.keymap.set({'n'}, 's[', [[vi["0p]], { noremap = true, silent = true })
 vim.keymap.set({'n'}, 's{', [[vi{"0p]], { noremap = true, silent = true })
 
+vim.keymap.set('v', 'sp', [["0p]], { noremap = true, silent = true })
+
 
 -- 启用折叠功能
 vim.opt.foldenable = true
