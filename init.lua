@@ -6,6 +6,9 @@ vim.g.mapleader = " "
 vim.opt.number = true
 -- vim.opt.relativenumber = true
 
+-- 滚动时留行数
+vim.opt.scrolloff = 6
+
 -- 缩进设置
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -13,6 +16,9 @@ vim.opt.expandtab = true
 
 -- 高亮当前行
 vim.opt.cursorline = true
+
+--永久启用块选择虚拟模式
+vim.opt.virtualedit = "block"
 
 -- 启用系统剪贴板
 -- vim.opt.clipboard = "unnamedplus"
