@@ -23,6 +23,10 @@ vim.opt.virtualedit = "block"
 -- 启用系统剪贴板
 -- vim.opt.clipboard = "unnamedplus"
 
+-- 用 / 搜索时不区分大小写, 智能区分
+vim.opt.ignorecase = true
+-- vim.opt.smartcase = true
+
 -- 降低超时等待时间（默认 1000ms）
 vim.o.timeoutlen = 500  -- 设置 300ms 内完成 jk 输入才触发
 
