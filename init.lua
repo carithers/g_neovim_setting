@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 -- 启用行号和相对行号
 vim.opt.number = true
 -- vim.opt.relativenumber = true
+require('number')  -- 引入 number.lua 来实现行号切换功能
 
 -- 滚动时留行数
 vim.opt.scrolloff = 6
