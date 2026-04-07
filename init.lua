@@ -8,7 +8,7 @@ vim.opt.number = true
 vim.keymap.set({'n','v'}, '<leader>n', '<cmd>set relativenumber!<CR>', { noremap = true, silent = true })
 
 -- 滚动时留行数
-vim.opt.scrolloff = 6
+vim.opt.scrolloff = 5
 
 -- 缩进设置
 vim.opt.tabstop = 4
