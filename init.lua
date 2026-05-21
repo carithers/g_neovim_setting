@@ -1,4 +1,5 @@
 
+
 -- <leader> 按键
 vim.g.mapleader = " "
 
@@ -81,6 +82,30 @@ if vim.g.vscode then
 else
     -- 如果不存在 VSCode，执行普通的 Neovim 配置
     -- 在这里添加普通的 Neovim 配置
+
+
+-- 自动安装 lazy.nvim (Bootstrap)
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- 使用最新的稳定版
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+
+    -- 这行代码会让 lazy 自动去 lua/plugins/ 目录下寻找所有的 .lua 文件并加载
+    require("lazy").setup("plugins")
+
+    -- 加载neovide配置
+    -- 这行代码会去寻找并执行 lua/neovide_conf/init.lua
+    require("neovide_conf")
+
 end
 
 -- 禁用o新行自动注释
