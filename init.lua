@@ -82,6 +82,8 @@ if vim.g.vscode then
 else
     -- 如果不存在 VSCode，执行普通的 Neovim 配置
     -- 在这里添加普通的 Neovim 配置
+    -- 按顺序尝试 utf-8，然后是各种中文编码，最后是 latin1 兜底
+    vim.opt.fileencodings = { "utf-8", "gbk", "gb2312", "cp936", "latin1" }
 
 
 -- 自动安装 lazy.nvim (Bootstrap)
